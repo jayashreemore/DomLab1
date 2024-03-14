@@ -52,3 +52,4 @@ for (i=0; i<menuLinks.length; i++){
 
 console.log(newElem);
 
+//PART 4 Is to save this work for next coming project ///
