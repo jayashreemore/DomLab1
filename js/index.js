@@ -29,4 +29,26 @@ topMenuEl.style.height = '100%';
 topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
 topMenuEl.classList.add("flex-around");
 
+//PART 3
+var menuLinks = [
+    { text: 'about', href: '/about' },
+    { text: 'catalog', href: '/catalog' },
+    { text: 'orders', href: '/orders' },
+    { text: 'account', href: '/account' },
+  ];
+
+//   Iterate over the entire menuLinks array and for each "link" object:
+// Create an <a> element.
+// On the new element, add an href attribute with its value set to the href property of the "link" object.
+// Set the new element's content to the value of the text property of the "link" object.
+// Append the new element to the topMenuEl element.
+
+for (i=0; i<menuLinks.length; i++){
+    const newElem = document.createElement('a');
+    newElem.setAttribute('href', menuLinks[i].href);
+    newElem.append(menuLinks[i].text);
+    document.getElementById("top-menu").appendChild(newElem);
+}
+
+console.log(newElem);
 
