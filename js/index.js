@@ -1,3 +1,23 @@
+//added this part 2 dom rlab here ///
+
+var menuLinks = [
+  {text: 'about', href: '/about'},
+  {text: 'catalog', href: '#', subLinks: [
+    {text: 'all', href: '/catalog/all'},
+    {text: 'top selling', href: '/catalog/top'},
+    {text: 'search', href: '/catalog/search'},
+  ]},
+  {text: 'orders', href: '#' , subLinks: [
+    {text: 'new', href: '/orders/new'},
+    {text: 'pending', href: '/orders/pending'},
+    {text: 'history', href: '/orders/history'},
+  ]},
+  {text: 'account', href: '#', subLinks: [
+    {text: 'profile', href: '/account/profile'},
+    {text: 'sign out', href: '/account/signout'},
+  ]},
+];
+
 //DOM Lab Part 1
 // Select and cache the <main> element in a variable named mainEl.
 // Set the background color of mainEl to the value stored in the --main-bg CSS custom property.
@@ -30,12 +50,15 @@ topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
 topMenuEl.classList.add("flex-around");
 
 //PART 3
-var menuLinks = [
-    { text: 'about', href: '/about' },
-    { text: 'catalog', href: '/catalog' },
-    { text: 'orders', href: '/orders' },
-    { text: 'account', href: '/account' },
-  ];
+
+
+// var menuLinks = [
+//     { text: 'about', href: '/about' },
+//     { text: 'catalog', href: '/catalog' },
+//     { text: 'orders', href: '/orders' },
+//     { text: 'account', href: '/account' },
+//   ];
+  
 
 //   Iterate over the entire menuLinks array and for each "link" object:
 // Create an <a> element.
@@ -75,3 +98,25 @@ subMenuEl.classList.add("flex-around");
 
 subMenuEl.style.position='absolute';
 subMenuEl.style.top='0';
+
+//PART 4 var menuLinks 
+// Select and cache the all of the <a> elements inside of topMenuEl in a variable named topMenuLinks.
+// Attach a delegated 'click' event listener to topMenuEl.
+// The first line of code of the event listener function should call the event object's preventDefault() method.
+// The second line of code of the function should immediately return if the element clicked was not an <a> element.
+// Log the content of the <a> to verify the handler is working.
+
+const topMenuLinks = document.querySelectorAll('a');
+console.log(topMenuLinks);
+///it ll give node list a a a a in console ///
+
+topMenuEl.addEventListener("click", function(event) {
+  // Prevent default behavior
+  event.preventDefault();
+
+  // Check if the clicked element is an <a> element
+  if (event.target.tagName === "A") {
+      // Log the content of the <a> element
+      console.log("Clicked link content:", event.target.textContent);
+  }
+});
