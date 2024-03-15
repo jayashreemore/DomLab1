@@ -117,6 +117,18 @@ topMenuEl.addEventListener("click", function(event) {
   // Check if the clicked element is an <a> element
   if (event.target.tagName === "A") {
       // Log the content of the <a> element
-      console.log("Clicked link content:", event.target.textContent);
+      console.log(event.target);////part 4-1
+      topMenuLinks.forEach(link => {
+        if (link !== event.target){
+          link.classList.remove('active');
+        }
+      });
+
+      event.target.classList.toggle('active');///part 4 -2 
+/// All ar ewhite when u click it ll b active in black color////
+  
   }
+});
+menuLinks.forEach(link => {
+  link.addEventListener('click', handleMenuClick);
 });
