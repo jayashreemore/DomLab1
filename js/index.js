@@ -50,6 +50,28 @@ for (i=0; i<menuLinks.length; i++){
     document.getElementById("top-menu").appendChild(newElem);
 }
 
-console.log(newElem);
+//console.log(newElem);
 
-//PART 4 Is to save this work for next coming project ///
+//DOM Part 2 ALAB 316.3.1//
+/*Select and cache the <nav id="sub-menu"> element in a variable named subMenuEl.
+Set the height subMenuEl element to be "100%".
+Set the background color of subMenuEl to the value stored in the --sub-menu-bg CSS custom property.
+Add the class of flex-around to the subMenuEl element.
+*/
+///
+
+const subMenuEl = document.getElementById('sub-menu');
+console.log(subMenuEl);
+
+subMenuEl.style.height = '100%';
+subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)';
+subMenuEl.classList.add("flex-around");
+
+
+//comment out line 53 then this ll work so did that 
+
+// Set the CSS position property of subMenuEl to the value of absolute.
+// Set the CSS top property of subMenuEl to the value of 0.
+
+subMenuEl.style.position='absolute';
+subMenuEl.style.top='0';
