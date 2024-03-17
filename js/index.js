@@ -1,21 +1,27 @@
 //added this part 2 dom rlab here ///
 
 var menuLinks = [
-  {text: 'about', href: '/about'},
-  {text: 'catalog', href: '#', subLinks: [
-    {text: 'all', href: '/catalog/all'},
-    {text: 'top selling', href: '/catalog/top'},
-    {text: 'search', href: '/catalog/search'},
-  ]},
-  {text: 'orders', href: '#' , subLinks: [
-    {text: 'new', href: '/orders/new'},
-    {text: 'pending', href: '/orders/pending'},
-    {text: 'history', href: '/orders/history'},
-  ]},
-  {text: 'account', href: '#', subLinks: [
-    {text: 'profile', href: '/account/profile'},
-    {text: 'sign out', href: '/account/signout'},
-  ]},
+  { text: 'about', href: '/about' },
+  {
+    text: 'catalog', href: '#', subLinks: [
+      { text: 'all', href: '/catalog/all' },
+      { text: 'top selling', href: '/catalog/top' },
+      { text: 'search', href: '/catalog/search' },
+    ]
+  },
+  {
+    text: 'orders', href: '#', subLinks: [
+      { text: 'new', href: '/orders/new' },
+      { text: 'pending', href: '/orders/pending' },
+      { text: 'history', href: '/orders/history' },
+    ]
+  },
+  {
+    text: 'account', href: '#', subLinks: [
+      { text: 'profile', href: '/account/profile' },
+      { text: 'sign out', href: '/account/signout' },
+    ]
+  },
 ];
 
 //DOM Lab Part 1
@@ -26,6 +32,7 @@ var menuLinks = [
 // Add a class of flex-ctr to mainEl.
 //create main element , queryselector ,for bg color style it,create h1, bring it in center 
 // 1
+
 let mainEl = document.querySelector('main');
 console.log(mainEl);
 //2
@@ -58,7 +65,8 @@ topMenuEl.classList.add("flex-around");
 //     { text: 'orders', href: '/orders' },
 //     { text: 'account', href: '/account' },
 //   ];
-  
+
+
 
 //   Iterate over the entire menuLinks array and for each "link" object:
 // Create an <a> element.
@@ -66,11 +74,11 @@ topMenuEl.classList.add("flex-around");
 // Set the new element's content to the value of the text property of the "link" object.
 // Append the new element to the topMenuEl element.
 
-for (i=0; i<menuLinks.length; i++){
-    const newElem = document.createElement('a');
-    newElem.setAttribute('href', menuLinks[i].href);
-    newElem.append(menuLinks[i].text);
-    document.getElementById("top-menu").appendChild(newElem);
+for (i = 0; i < menuLinks.length; i++) {
+  const newElem = document.createElement('a');
+  newElem.setAttribute('href', menuLinks[i].href);
+  newElem.append(menuLinks[i].text);
+  document.getElementById("top-menu").appendChild(newElem);
 }
 
 //console.log(newElem);
@@ -85,7 +93,6 @@ Add the class of flex-around to the subMenuEl element.
 
 const subMenuEl = document.getElementById('sub-menu');
 console.log(subMenuEl);
-
 subMenuEl.style.height = '100%';
 subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)';
 subMenuEl.classList.add("flex-around");
@@ -96,8 +103,8 @@ subMenuEl.classList.add("flex-around");
 // Set the CSS position property of subMenuEl to the value of absolute.
 // Set the CSS top property of subMenuEl to the value of 0.
 
-subMenuEl.style.position='absolute';
-subMenuEl.style.top='0';
+subMenuEl.style.position = 'absolute';
+subMenuEl.style.top = '0';
 
 //PART 4 var menuLinks 
 // Select and cache the all of the <a> elements inside of topMenuEl in a variable named topMenuLinks.
@@ -110,25 +117,32 @@ const topMenuLinks = document.querySelectorAll('a');
 console.log(topMenuLinks);
 ///it ll give node list a a a a in console ///
 
-topMenuEl.addEventListener("click", function(event) {
+topMenuEl.addEventListener("click", function (event) {
   // Prevent default behavior
   event.preventDefault();
 
   // Check if the clicked element is an <a> element
   if (event.target.tagName === "A") {
-      // Log the content of the <a> element
-      console.log(event.target);////part 4-1
-      topMenuLinks.forEach(link => {
-        if (link !== event.target){
-          link.classList.remove('active');
-        }
-      });
 
-      event.target.classList.toggle('active');///part 4 -2 
-/// All ar ewhite when u click it ll b active in black color////
-  
+    // Log the content of the <a> element
+    //console.log(event.target);////part 4-1
+    //console.log
+    topMenuLinks.forEach(link => {
+      if (link !== event.target) {
+        link.classList.remove('active');
+      }
+    });
+
+    event.target.classList.toggle('active');///part 4 -2 
+    /// All are white when u click it ll b active in black color////
+
   }
 });
-menuLinks.forEach(link => {
-  link.addEventListener('click', handleMenuClick);
-});
+////Part 5 Within the same event listener, we want to 
+//toggle the submenu between active and non-active states.//
+// If the clicked <a> element's "link" object within menuLinks
+//  has a subLinks property (all do, except for the "link" object for ABOUT), set the CSS top property of subMenuEl to 100%.
+// Otherwise, set the CSS top property of subMenuEl to 0.
+
+
+
